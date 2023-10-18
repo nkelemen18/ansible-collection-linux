@@ -1,0 +1,20 @@
+[Unit]
+Description=Restic backup
+[Service]
+Type=oneshot
+User={{ restic_user }}
+Group={{ restic_group }}
+
+{% for script in restic_systemd_pre_exec %}
+ExecStartPre={{ script }}
+{% endfor %}
+
+{% for folder in restic_paths_folders_to_backup %}
+ExecStart=restic backup {{ folder }}
+{% endfor %}
+
+{% for script in restic_systemd_post_exec %}
+ExecStartPost={{ script }}
+{% endfor %}
+
+EnvironmentFile={{ restic_paths_config_file }}

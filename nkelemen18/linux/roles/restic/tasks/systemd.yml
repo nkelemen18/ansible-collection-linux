@@ -1,0 +1,47 @@
+- name: Add restic backup systemd service
+  become: true
+  template:
+    src: systemd-restic-backup.service.j2
+    dest: /etc/systemd/system/restic-backup.service
+    owner: root
+    group: root
+
+- name: Add restic backup systemd timer
+  become: true
+  template:
+    src: systemd-restic-backup.timer.j2
+    dest: /etc/systemd/system/restic-backup.timer
+    owner: root
+    group: root
+
+- name: Set restic backup systemd timer
+  become: true
+  systemd:
+    daemon_reload: yes
+    name: restic-backup.timer
+    enabled: "{{ restic_enabled }}"
+    state: "{{ 'started' if restic_enabled else 'stopped' }}"
+
+- name: Add restic cleanup systemd service
+  become: true
+  template:
+    src: systemd-restic-cleanup.service.j2
+    dest: /etc/systemd/system/restic-cleanup.service
+    owner: root
+    group: root
+
+- name: Add restic cleanup systemd timer
+  become: true
+  template:
+    src: systemd-restic-cleanup.timer.j2
+    dest: /etc/systemd/system/restic-cleanup.timer
+    owner: root
+    group: root
+
+- name: Set restic cleanup systemd timer
+  become: true
+  systemd:
+    daemon_reload: yes
+    name: restic-cleanup.timer
+    enabled: "{{ restic_enabled and restic_cleanup_enabled }}"
+    state: "{{ 'started' if restic_enabled and restic_cleanup_enabled else 'stopped' }}"

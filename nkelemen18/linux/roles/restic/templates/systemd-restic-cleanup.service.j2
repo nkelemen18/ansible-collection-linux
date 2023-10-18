@@ -1,0 +1,10 @@
+[Unit]
+Description=Restic cleanup
+[Service]
+Type=oneshot
+User={{ restic_user }}
+Group={{ restic_group }}
+
+ExecStart=restic forget {{ restic_cleanup_forget_params }} {% if restic_cleanup_prune_enabled %}--prune{% endif %}
+
+EnvironmentFile={{ restic_paths_config_file }}

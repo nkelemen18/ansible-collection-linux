@@ -1,0 +1,89 @@
+# Enable restic service
+restic_enabled: true
+# Backup systemd service schedule value
+restic_schedule: daily
+
+# Execute restic self upgrade
+restic_self_upgrade: false
+
+# If false, then no systemd service will be deployed
+restic_systemd_deploy: true
+
+# Scripts to execute before restic backup command
+restic_systemd_pre_exec: []
+
+# Scripts to execute after restic backup command
+restic_systemd_post_exec: []
+
+# Restic cleanup
+# See: https://restic.readthedocs.io/en/stable/060_forget.html
+restic_cleanup_enabled: true
+# Cleanup systemd service schedule value
+restic_cleanup_schedule: Sun 03:00
+# Cleanup parameters
+restic_cleanup_forget_params: '--keep-daily 7 --keep-monthly 6'
+# Prune old data
+restic_cleanup_prune_enabled: true
+
+# Folders to include in backup
+restic_paths_folders_to_backup: []
+# restic config file
+restic_paths_config_folder: '/etc/restic'
+restic_paths_config_file: '/etc/restic/restic.env'
+
+# Restic user and group
+restic_user: root
+restic_group: root
+
+# Restic environment variables config
+# See: https://restic.readthedocs.io/en/stable/040_backup.html#environment-variables
+restic_conf_repository_file: ''
+restic_conf_repository: ''
+restic_conf_password_file: '/etc/restic/restic.pw'
+restic_conf_password: ''
+restic_conf_password_command: ''
+restic_conf_key_hint: ''
+restic_conf_cacert: ''
+restic_conf_tls_client_cert: ''
+restic_conf_cache_dir: '~/.cache/restic'
+restic_conf_compression: ''
+restic_conf_progress_fps: ''
+restic_conf_pack_size: ''
+restic_conf_read_concurrency: ''
+restic_conf_tmpdir: ''
+restic_conf_aws_access_key_id: ''
+restic_conf_aws_secret_access_key: ''
+restic_conf_aws_session_token: ''
+restic_conf_aws_default_region: ''
+restic_conf_aws_profile: ''
+restic_conf_aws_shared_credentials_file: ''
+restic_conf_st_auth: ''
+restic_conf_st_user: ''
+restic_conf_st_key: ''
+restic_conf_os_auth_url: ''
+restic_conf_os_region_name: ''
+restic_conf_os_username: ''
+restic_conf_os_user_id: ''
+restic_conf_os_password: ''
+restic_conf_os_tenant_id: ''
+restic_conf_os_tenant_name: ''
+restic_conf_os_user_domain_name: ''
+restic_conf_os_user_domain_id: ''
+restic_conf_os_project_name: ''
+restic_conf_os_project_domain_name: ''
+restic_conf_os_project_domain_id: ''
+restic_conf_os_trust_id: ''
+restic_conf_os_application_credential_id: ''
+restic_conf_os_application_credential_name: ''
+restic_conf_os_application_credential_secret: ''
+restic_conf_os_storage_url: ''
+restic_conf_os_auth_token: ''
+restic_conf_b2_account_id: ''
+restic_conf_b2_account_key: ''
+restic_conf_azure_account_name: ''
+restic_conf_azure_account_key: ''
+restic_conf_azure_account_sas: ''
+restic_conf_azure_endpoint_suffix: ''
+restic_conf_google_project_id: ''
+restic_conf_google_application_credentials: ''
+restic_conf_rclone_bwlimit: ''

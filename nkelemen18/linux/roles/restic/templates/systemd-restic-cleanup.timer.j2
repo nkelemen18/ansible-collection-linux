@@ -1,0 +1,9 @@
+[Unit]
+Description=Cleanup restic repository ({{ restic_cleanup_schedule }})
+
+[Timer]
+OnCalendar={{ restic_cleanup_schedule }}
+Persistent=true
+
+[Install]
+WantedBy=timers.target

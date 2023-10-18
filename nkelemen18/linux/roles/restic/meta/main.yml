@@ -1,0 +1,7 @@
+galaxy_info:
+  author: Norbert Kelemen
+  description: Install and configure Restic backup software with systemd.
+  issue_tracker_url: https://github.com/nkelemen18/ansible-collection-linux/issues
+  license: MIT
+  galaxy_tags: [linux, systemd, restic, backup]
+

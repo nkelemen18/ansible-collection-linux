@@ -1,0 +1,15 @@
+namespace: nkelemen18
+name: linux
+version: 1.0.0
+readme: README.md
+authors:
+- Norbert Kelemen <nkelemen18@nkelemen.hu>
+description: linux management collection
+license:
+  - 'MIT'
+tags: [linux, restic]
+dependencies: {}
+repository: https://github.com/nkelemen18/ansible-collection-linux
+issues: https://github.com/nkelemen18/ansible-collection-linux/issues
+build_ignore: []
+

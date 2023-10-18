@@ -1,0 +1,11 @@
+- name: Install restic
+  become: true
+  apt:
+    update_cache: yes
+    name: restic
+    state: latest
+
+- name: Self-upgrade restic
+  become: true
+  command: restic self-update
+  when: restic_self_upgrade
