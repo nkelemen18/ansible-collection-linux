@@ -1,11 +1,11 @@
 - name: Install restic
   become: true
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     name: restic
     state: latest
 
 - name: Self-upgrade restic
   become: true
-  command: restic self-update
+  ansible.builtin.command: restic self-update
   when: restic_self_upgrade

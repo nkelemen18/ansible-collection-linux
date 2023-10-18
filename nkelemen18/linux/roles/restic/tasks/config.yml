@@ -1,6 +1,6 @@
-- name: create restic config dir
+- name: Create restic config dir
   become: true
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ restic_paths_config_folder }}"
     owner: "{{ restic_user }}"
@@ -8,7 +8,7 @@
 
 - name: Create restic config file
   become: true
-  template:
+  ansible.builtin.template:
     src: restic.env.j2
     dest: "{{ restic_paths_config_file }}"
     owner: "{{ restic_user }}"
@@ -17,7 +17,7 @@
 
 - name: Save restic password to file
   become: true
-  copy:
+  ansible.builtin.copy:
     content: "{{ restic_conf_password }}"
     dest: "{{ restic_conf_password_file }}"
     owner: "{{ restic_user }}"

@@ -1,12 +1,12 @@
 ---
 - name: Check whether repo initialized
   become: true
-  shell: 'env $(cat {{ restic_paths_config_file }} | xargs) restic cat config'
+  ansible.builtin.shell: 'env $(cat {{ restic_paths_config_file }} | xargs) restic cat config'
   register: repo_check
   failed_when: repo_check.rc not in [0, 1]
   changed_when: repo_check.rc != 0
 
 - name: Initialize repository
   become: true
-  shell: 'env $(cat {{ restic_paths_config_file }} | xargs) restic init'
+  ansible.builtin.shell: 'env $(cat {{ restic_paths_config_file }} | xargs) restic init'
   when: repo_check.rc == 1
