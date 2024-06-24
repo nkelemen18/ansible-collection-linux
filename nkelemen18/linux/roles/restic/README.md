@@ -1,6 +1,6 @@
 # Restic role
 [Environment variables](https://restic.readthedocs.io/en/stable/040_backup.html#environment-variables) are configurable
-with variables. Full list (here)[./linux/roles/restic/defaults/main.yml]
+with variables. Full list [here](./linux/roles/restic/defaults/main.yml)
 ```yaml
 restic_conf_repository_file: ''
 restic_conf_repository: ''
