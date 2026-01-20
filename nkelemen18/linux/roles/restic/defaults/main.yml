@@ -3,9 +3,6 @@ restic_enabled: true
 # Backup systemd service schedule value
 restic_schedule: daily
 
-# Execute restic self upgrade
-restic_self_upgrade: false
-
 # If false, then no systemd service will be deployed
 restic_systemd_deploy: true
 

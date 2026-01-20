@@ -9,9 +9,7 @@ Group={{ restic_group }}
 ExecStartPre={{ script }}
 {% endfor %}
 
-{% for folder in restic_paths_folders_to_backup %}
-ExecStart=restic backup {{ folder }}
-{% endfor %}
+ExecStart=restic backup {{ restic_paths_folders_to_backup | join(' ') }}
 
 {% for script in restic_systemd_post_exec %}
 ExecStartPost={{ script }}
